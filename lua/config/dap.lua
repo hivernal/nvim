@@ -4,7 +4,6 @@ dap.adapters.lldb = {
   command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
   name = 'lldb'
 }
-local dap = require('dap')
 dap.configurations.cpp = {
   {
     name = 'Launch',
@@ -76,7 +75,7 @@ require("dapui").setup({
   }
 })
 
-local dap, dapui = require("dap"), require("dapui")
+local dapui = require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end

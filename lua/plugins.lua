@@ -20,7 +20,6 @@ require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip'
 
   use 'fedepujol/move.nvim'
-  -- use 'windwp/nvim-autopairs'
   use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
