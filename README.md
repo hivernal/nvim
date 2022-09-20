@@ -18,7 +18,7 @@
 * hrsh7th/cmp-buffer
 * hrsh7th/cmp-path
 
-**Dap:**
+**Dap(configured only for c/c++ lldb-vscode):**
 * mfussenegger/nvim-dap
 * rcarriga/nvim-dap-ui
 
