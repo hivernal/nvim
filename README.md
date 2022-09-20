@@ -1,5 +1,5 @@
 # Screenshots
-![](s1.png)![](s2.png)![](s3.png)![](s4.png)
+![](screenshots/s1.png)![](screenshots/s2.png)![](screenshots/s3.png)![](screenshots/s4.png)
 
 # List of plugins
 
