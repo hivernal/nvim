@@ -2,7 +2,8 @@
 ![](s1.png)![](s2.png)![](s3.png)![](s4.png)
 
 # List of plugins
-Plugin manager:
+
+**Plugin manager:**
 * wbthomason/packer.nvim
 
 **Lsp support:**
@@ -26,7 +27,7 @@ Plugin manager:
 * rafamadriz/friendly-snippets
 * saadparwaiz1/cmp_luasnip
 
-**Treesitter:
+**Treesitter:**
 * nvim-treesitter/nvim-treesitter
 
 **Icons, buffer line, command line, file explorer:**
