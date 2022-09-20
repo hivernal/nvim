@@ -48,7 +48,7 @@ Plugin manager:
 * lukas-reineke/indent-blankline.nvim
 
 # Requirements
-You can find requirements for every plugin at their repositories.
+You can find requirements for plugins from their repositories.
 
 # Getting started
 Install ![nerd font](https://www.nerdfonts.com/font-downloads)
