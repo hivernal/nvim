@@ -12,7 +12,7 @@ api.nvim_set_keymap('i', 'jj', '<esc>', {})
 
 api.nvim_set_keymap('n', '<leader>s', ':wa<cr>', {})
 api.nvim_set_keymap('n', '<leader>c', ':bdelete<cr>', {})
-api.nvim_set_keymap('n', '<leader>q', ':q<cr>', {})
+api.nvim_set_keymap('n', '<leader>q', ':qa<cr>', {})
 
 api.nvim_set_keymap('n', '<leader>ww', '<c-w>w', {})
 api.nvim_set_keymap('n', '<leader>wh', '<c-w>h', {})
@@ -37,7 +37,7 @@ api.nvim_set_keymap('v', '<m-l>', ":MoveHBlock(1)<CR>", { noremap = true, silent
 api.nvim_set_keymap('n', '<m-h>', ":MoveHChar(-1)<CR>", { noremap = true, silent = true })
 api.nvim_set_keymap('v', '<m-h>', ":MoveHBlock(-1)<CR>", { noremap = true, silent = true })
 
-api.nvim_set_keymap('n', '<leader>f', ":NvimTreeToggle<cr>", {})
+api.nvim_set_keymap('n', '<leader>e', ":NvimTreeToggle<cr>", {})
 api.nvim_set_keymap("n", "<TAB>", ":BufferLineCycleNext <CR>", { noremap = true, silent = true })
 api.nvim_set_keymap("n", "<S-TAB>", ":BufferLineCyclePrev <CR>", { noremap = true, silent = true })
 -- api.nvim_set_keymap('n', '<c-n>', ':Texplore <CR>',{})
@@ -47,6 +47,9 @@ g.autochdir = true
 g.completeopt = 'menu,menuone,noselect'
 -- g.netrw_liststyle = 2
 -- g.netrw_banner = 0
+g.loaded = 1
+g.loaded_netrwPlugin = 1
+
 
 -- use filetype.lua instead of filetype.vim
 g.did_load_filetypes = 0

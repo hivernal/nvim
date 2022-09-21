@@ -15,7 +15,7 @@ wk.register({
   },
   s = { "save buffers" },
   c = { "close buffer" },
-  c = { "quit nvim" },
+  q = { "quit nvim" },
   l = {
     name = "lsp",
     q = { "diagnostic" },
@@ -28,6 +28,6 @@ wk.register({
     j = { "next error" },
     k = { "previous error" },
   },
-  f = { "file explorer" },
+  e = { "file explorer" },
   ["/"] = { "comment" },
 }, { prefix = "<leader>" })
