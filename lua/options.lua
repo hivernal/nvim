@@ -10,8 +10,9 @@ api.nvim_set_keymap('n', '<leader>/', 'gcc', {})
 api.nvim_set_keymap('v', '<leader>/', 'gc', {})
 api.nvim_set_keymap('i', 'jj', '<esc>', {})
 
-api.nvim_set_keymap('n', '<leader>s', ':w<cr>', {})
+api.nvim_set_keymap('n', '<leader>s', ':wa<cr>', {})
 api.nvim_set_keymap('n', '<leader>c', ':bdelete<cr>', {})
+api.nvim_set_keymap('n', '<leader>q', ':q<cr>', {})
 
 api.nvim_set_keymap('n', '<leader>ww', '<c-w>w', {})
 api.nvim_set_keymap('n', '<leader>wh', '<c-w>h', {})

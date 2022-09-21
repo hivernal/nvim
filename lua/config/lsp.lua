@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 -- vim.keymap.set('n', '<leader>le', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '<leader>lp', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', '<leader>ln', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<leader>lk', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<leader>lj', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>lq', vim.diagnostic.setloclist, opts)
 
 local on_attach = function(client, bufnr)
@@ -21,7 +21,7 @@ local on_attach = function(client, bufnr)
   --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   -- end, bufopts)
   -- vim.keymap.set('n', '<leader>ld', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<leader>lm', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
