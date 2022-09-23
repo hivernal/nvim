@@ -64,9 +64,11 @@ opt.clipboard = "unnamedplus"
 opt.cul = true -- cursor line
 
 -- Indenting
-opt.expandtab = true
+opt.expandtab = false
 opt.shiftwidth = 2
 opt.smartindent = true
+opt.tabstop = 2
+opt.softtabstop = 2
 
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
@@ -84,7 +86,6 @@ opt.shortmess:append "sI"
 opt.signcolumn = "yes"
 opt.splitbelow = true
 opt.splitright = true
-opt.tabstop = 8
 opt.termguicolors = true
 opt.timeoutlen = 400
 -- opt.undofile = true
