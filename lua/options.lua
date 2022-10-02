@@ -1,11 +1,12 @@
 local opt = vim.opt
 local g = vim.g
 local api = vim.api
+
 opt.background = 'dark'
 -- require('monokai').setup {}
 vim.cmd [[colorscheme onedark]]
-g.mapleader = " "
 
+g.mapleader = " "
 api.nvim_set_keymap('n', '<leader>/', 'gcc', {})
 api.nvim_set_keymap('v', '<leader>/', 'gc', {})
 api.nvim_set_keymap('i', 'jj', '<esc>', {})
@@ -42,7 +43,7 @@ api.nvim_set_keymap("n", "<TAB>", ":BufferLineCycleNext <CR>", { noremap = true,
 api.nvim_set_keymap("n", "<S-TAB>", ":BufferLineCyclePrev <CR>", { noremap = true, silent = true })
 -- api.nvim_set_keymap('n', '<c-n>', ':Texplore <CR>',{})
 
-opt.cc = '78'
+opt.cc = '80'
 g.autochdir = true
 g.completeopt = 'menu,menuone,noselect'
 -- g.netrw_liststyle = 2
@@ -50,21 +51,22 @@ g.completeopt = 'menu,menuone,noselect'
 g.loaded = 1
 g.loaded_netrwPlugin = 1
 
-
--- use filetype.lua instead of filetype.vim
-g.did_load_filetypes = 0
-g.do_filetype_lua = 1
+g.vim_version = vim.version().minor
+-- use filetype.lua instead of filetype.vim. it's enabled by default in neovim 0.8 (nightly)
+if g.vim_version < 8 then
+  g.did_load_filetypes = 0
+  g.do_filetype_lua = 1
+end
 
 opt.laststatus = 3 -- global statusline
--- opt.statusline = config.ui.statusline.config
 opt.showmode = false
 
 opt.title = true
 opt.clipboard = "unnamedplus"
-opt.cul = true -- cursor line
+opt.cursorline = true
 
 -- Indenting
-opt.expandtab = false
+opt.expandtab = true
 opt.shiftwidth = 2
 opt.smartindent = true
 opt.tabstop = 2
