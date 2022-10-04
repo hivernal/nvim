@@ -3,7 +3,8 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
+  -- "williamboman/mason.nvim"
+  -- use 'williamboman/nvim-lsp-installer'
 
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -14,6 +15,13 @@ require('packer').startup(function()
 
   use 'mfussenegger/nvim-dap'
   use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
+  use "nvim-lua/plenary.nvim"
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
 
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'

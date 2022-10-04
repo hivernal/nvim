@@ -8,7 +8,6 @@
 
 **Lsp support:**
 * neovim/nvim-lspconfig
-* williamboman/nvim-lsp-installer
 
 **Autocompletion:**
 * hrsh7th/nvim-cmp
@@ -17,6 +16,10 @@
 * hrsh7th/cmp-nvim-lsp-signature-help
 * hrsh7th/cmp-buffer
 * hrsh7th/cmp-path
+
+**Fuzzy finder:**
+* nvim-telescope/telescope.nvim
+* [nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
 **Dap(configured only for c/c++ lldb-vscode):**
 * mfussenegger/nvim-dap

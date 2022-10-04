@@ -1,4 +1,4 @@
-local dap = require('dap')
+local dap, dapui = require('dap'), require("dapui")
 dap.adapters.lldb = {
   type = 'executable',
   command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
@@ -15,12 +15,25 @@ dap.configurations.cpp = {
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     args = {},
+    -- 💀
+    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+    --
+    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    --
+    -- Otherwise you might get the following error:
+    --
+    --    Error on launch: Failed to attach to the target process
+    --
+    -- But you should be aware of the implications:
+    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+    -- runInTerminal = false,
   },
 }
 dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
 
 require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
+  icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
   mappings = {
     -- Use a table to apply multiple mappings
     expand = { "<CR>", "<2-LeftMouse>" },
@@ -61,6 +74,22 @@ require("dapui").setup({
       position = "bottom",
     },
   },
+  controls = {
+    -- Requires Neovim nightly (or 0.8 when released)
+    enabled = true,
+    -- Display controls in this element
+    element = "repl",
+    icons = {
+      pause = "",
+      play = "",
+      step_into = "",
+      step_over = "",
+      step_out = "",
+      step_back = "",
+      run_last = "↻",
+      terminate = "□",
+    },
+  },
   floating = {
     max_height = nil, -- These can be integers or a float between 0 and 1.
     max_width = nil, -- Floats will be treated as percentage of your screen.
@@ -72,10 +101,9 @@ require("dapui").setup({
   windows = { indent = 1 },
   render = {
     max_type_length = nil, -- Can be integer or nil.
+    max_value_lines = 100, -- Can be integer or nil.
   }
 })
-
-local dapui = require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end

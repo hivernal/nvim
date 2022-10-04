@@ -24,7 +24,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>ln', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', '<leader>lr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -46,33 +46,58 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
-local handlers =  {
-  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = "rounded"}),
-  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = "rounded" }),
+-- local handlers = {
+--   ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+--   ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+-- }
+
+local lspconfig = require('lspconfig')
+lspconfig.clangd.setup { on_attach = on_attach, capabilities = capabilities }
+lspconfig.bashls.setup { on_attach = on_attach, capabilities = capabilities }
+lspconfig.sumneko_lua.setup {
+  cmd = { "/home/nikita/.local/share/nvim/lsp/lua-language-server/bin/lua-language-server" },
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = {'vim'},
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
 }
 
-require("nvim-lsp-installer").setup {}
-local lspconfig = require('lspconfig')
-for _, server in ipairs(require("nvim-lsp-installer").get_installed_servers()) do
-  if server.name == 'sumneko_lua' then
-    lspconfig[server.name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { 'vim' },
-          },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
-          },
-          telemetry = {
-            enable = false,
-          },
-        },
-      },
-    }
-  else
-    lspconfig[server.name].setup {  on_attach = on_attach, capabilities = capabilities }
-  end
-end
+-- require("mason").setup()
+-- require("nvim-lsp-installer").setup {}
+-- for _, server in ipairs(require("nvim-lsp-installer").get_installed_servers()) do
+--   if server.name == 'sumneko_lua' then
+--     lspconfig[server.name].setup {
+--       capabilities = capabilities,
+--       on_attach = on_attach,
+--       settings = {
+--         Lua = {
+--           diagnostics = {
+--             globals = { 'vim' },
+--           },
+--           workspace = {
+--             library = vim.api.nvim_get_runtime_file("", true),
+--           },
+--           telemetry = {
+--             enable = false,
+--           },
+--         },
+--       },
+--     }
+--   else
+-- lspconfig[server.name].setup {  on_attach = on_attach, capabilities = capabilities }
+--   end
+-- end

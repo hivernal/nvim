@@ -27,6 +27,12 @@ api.nvim_set_keymap('n', '<leader>wo', ':only<cr>', {})
 api.nvim_set_keymap('n', '<leader>wc', ':close<cr>', {})
 -- api.nvim_set_keymap('n', '<F5>', ':!cd build && make && ./run<CR>', {})
 
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
 api.nvim_set_keymap('n', '<esc>', ":noh <CR>", { noremap = true, silent = true })
 
 api.nvim_set_keymap('n', '<m-j>', ":MoveLine(1)<CR>", { noremap = true, silent = true })

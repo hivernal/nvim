@@ -13,6 +13,13 @@ wk.register({
     o = { "close other windows" },
     c = { "close window" },
   },
+  f = {
+    name = "find",
+    f = { "find file" },
+    b = { "find buffer" },
+    g = { "grep file" },
+    h = { "help" },
+  },
   s = { "save buffers" },
   c = { "close buffer" },
   q = { "quit nvim" },
