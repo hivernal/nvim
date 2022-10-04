@@ -4,14 +4,14 @@
 # List of plugins
 
 **Plugin manager:**
-* wbthomason/packer.nvim
+* [wbthomason/packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 **Lsp support:**
-* neovim/nvim-lspconfig
+* [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 
 **Autocompletion:**
-* hrsh7th/nvim-cmp
-* hrsh7th/cmp-nvim-lsp
+* [hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+* [hrsh7th/cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
 * onsails/lspkind.nvim
 * hrsh7th/cmp-nvim-lsp-signature-help
 * hrsh7th/cmp-buffer
