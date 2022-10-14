@@ -37,12 +37,12 @@
 **Icons, buffer line, command line, file explorer:**
 * [kyazdani42/nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
 * [kyazdani42/nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
-* [akinsho/bufferline.nvim](akinsho/bufferline.nvim)
+* [akinsho/bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 * [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 
 **Colorschemes:**
 * [tanvirtin/monokai.nvim](https://github.com/tanvirtin/monokai.nvim)
-* [joshdick/onedark.vim](https://github.com/joshdick/onedark)
+* [joshdick/onedark.vim](https://github.com/joshdick/onedark.vim)
 * [dracula/vim](https://github.com/dracula/vim)
 
 **Other useful plugins:**
@@ -50,7 +50,7 @@
 * [windwp/nvim-autopairs](https://github.com/nvim-autopairs)
 * [numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
 * [folke/which-key.nvim](https://github.com/folke/which-key.nvim)
-* [lukas-reineke/indent-blankline.nvim](lukas-reineke/indent-blankline.nvim)
+* [lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 
 # Requirements
 You can find requirements for plugins from their repositories.
