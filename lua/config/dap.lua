@@ -4,9 +4,14 @@ dap.adapters.lldb = {
   command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
   name = 'lldb'
 }
+dap.adapters.cppdbg = {
+  id = 'cppdbg',
+  type = 'executable',
+  command = '/home/nikita/downloads/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+}
 dap.configurations.cpp = {
   {
-    name = 'Launch',
+    name = 'lldb-vscode',
     type = 'lldb',
     request = 'launch',
     program = function()
@@ -15,18 +20,16 @@ dap.configurations.cpp = {
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     args = {},
-    -- 💀
-    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
-    --
-    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-    --
-    -- Otherwise you might get the following error:
-    --
-    --    Error on launch: Failed to attach to the target process
-    --
-    -- But you should be aware of the implications:
-    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-    -- runInTerminal = false,
+  },
+  {
+    name = "vscode-cpptools",
+    type = "cppdbg",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopAtEntry = true,
   },
 }
 dap.configurations.c = dap.configurations.cpp
@@ -59,10 +62,10 @@ require("dapui").setup({
       -- Elements can be strings or table with id and size keys.
         { id = "scopes", size = 0.25 },
         "breakpoints",
-        "stacks",
+        -- "stacks",
         "watches",
       },
-      size = 40, -- 40 columns
+      size = 60, -- 40 columns
       position = "left",
     },
     {

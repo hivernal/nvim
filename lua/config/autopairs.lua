@@ -3,53 +3,44 @@ local Rule = require('nvim-autopairs.rule')
 npairs.setup({
   check_ts = true,
   fast_wrap = {
-    map = '<M-r>',
+    map = "<M-e>",
     chars = { '{', '[', '(', '"', "'" },
     pattern = [=[[%'%"%)%>%]%)%}%,]]=],
     end_key = '$',
-    keys = 'qwertyuiopzxcvbnmasdfghjkl',
+    keys = "qwertyuiopzxcvbnmasdfghjkl",
     check_comma = true,
-    highlight = 'Search',
-    highlight_grey = 'Comment'
+    highlight = "Search",
+    highlight_grey = "Comment"
   },
 })
 
-local ts_conds = require('nvim-autopairs.ts-conds')
+local ts_conds = require("nvim-autopairs.ts-conds")
 npairs.add_rules({
-  Rule("%", "%", "lua")
-      :with_pair(ts_conds.is_ts_node({ 'string', 'comment' })),
-  Rule("$", "$", "lua")
-      :with_pair(ts_conds.is_not_ts_node({ 'function' })),
-      Rule(' ', ' ')
-    :with_pair(function (opts)
-      local pair = opts.line:sub(opts.col - 1, opts.col)
-      return vim.tbl_contains({ '()', '[]', '{}' }, pair)
-    end),
-  Rule('( ', ' )')
+  Rule("( ", " )")
       :with_pair(function() return false end)
       :with_move(function(opts)
-          return opts.prev_char:match('.%)') ~= nil
+          return opts.prev_char:match(".%)") ~= nil
       end)
       :use_key(')'),
-  Rule('{ ', ' }')
+  Rule("{ ", " }")
       :with_pair(function() return false end)
       :with_move(function(opts)
-          return opts.prev_char:match('.%}') ~= nil
+          return opts.prev_char:match(".%}") ~= nil
       end)
       :use_key('}'),
-  Rule('[ ', ' ]')
+  Rule("[ ", " ]")
       :with_pair(function() return false end)
       :with_move(function(opts)
-          return opts.prev_char:match('.%]') ~= nil
+          return opts.prev_char:match(".%]") ~= nil
       end)
       :use_key(']')
 
 })
 
 -- If you want insert `(` after select function or method item
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local cmp = require("cmp")
 cmp.event:on(
-  'confirm_done',
+  "confirm_done",
   cmp_autopairs.on_confirm_done()
 )

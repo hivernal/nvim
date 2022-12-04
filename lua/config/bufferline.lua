@@ -8,7 +8,7 @@ require('bufferline').setup {
     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     indicator = {
       icon = '▎', -- this should be omitted if indicator style is not 'icon'
-      style = 'icon', -- 'icon' | 'underline' | 'none',
+      style = "icon", -- 'icon' | 'underline' | 'none',
     },
     buffer_close_icon = '',
     modified_icon = '●',
@@ -34,7 +34,7 @@ require('bufferline').setup {
     diagnostics_update_in_insert = false,
     -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      return "(" .. count .. ")"
+      return '(' .. count .. ')'
     end,
     -- NOTE: this will be called a lot so don't do any heavy processing here
     custom_filter = function(buf_number, buf_numbers)
@@ -80,9 +80,9 @@ require('bufferline').setup {
     hover = {
       enabled = true,
       delay = 200,
-      reveal = { 'close' }
+      reveal = { "close" }
     },
-    sort_by = 'insert_at_end', -- 'insert_after_current' | 'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs'
+    sort_by = "insert_at_end", -- 'insert_after_current' | 'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs'
     -- | function(buffer_a, buffer_b)
     --   -- add custom logic
     --   return buffer_a.modified > buffer_b.modified
