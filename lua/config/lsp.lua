@@ -57,7 +57,7 @@ lspconfig.bashls.setup { on_attach = on_attach, capabilities = capabilities }
 lspconfig.pyright.setup { on_attach = on_attach, capabilities = capabilities }
 -- require 'lspconfig'.hls.setup { on_attach = on_attach, capabilities = capabilities }
 lspconfig.sumneko_lua.setup {
-  cmd = { "/home/nikita/.local/share/nvim/lsp/lua-language-server/bin/lua-language-server" },
+  cmd = { "/home/nikita/.local/share/nvim/lsp/lua/bin/lua-language-server" },
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {

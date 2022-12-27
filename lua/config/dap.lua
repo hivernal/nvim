@@ -7,7 +7,7 @@ dap.adapters.lldb = {
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
-  command = '/home/nikita/downloads/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+  command = '/home/nikita/.local/share/nvim/dap/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
 }
 dap.configurations.cpp = {
   {
