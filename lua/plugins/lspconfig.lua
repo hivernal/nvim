@@ -32,7 +32,7 @@ return {
 							require("formatter.filetypes.cpp").clangformat,
 						},
             python = {
-              require("formater.filetypes.python").autopep8,
+              require("formatter.filetypes.python").autopep8,
             },
 						["*"] = {
 							require("formatter.filetypes.any").remove_trailing_whitespace,
