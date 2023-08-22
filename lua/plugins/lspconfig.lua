@@ -1,7 +1,26 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		{ "williamboman/mason.nvim", opts = {} },
+		{
+			"williamboman/mason.nvim",
+			opts = {
+				ensure_installed = {
+					"lua-language-server",
+					"cpplint",
+					"autopep8",
+					"pyright",
+					"cpptools",
+					"stylua",
+				},
+			},
+			config = function(_, opts)
+				require("mason").setup(opts)
+				vim.api.nvim_create_user_command("MasonInstallAll", function()
+					vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
+				end, {})
+				vim.g.mason_binaries_list = opts.ensure_installed
+			end,
+		},
 
 		{
 			"mfussenegger/nvim-lint",
@@ -19,24 +38,16 @@ return {
 
 		{
 			"mhartington/formatter.nvim",
-      keys = {
-        { "<leader>lf", "<cmd>Format<cr>", desc = "Formatting" },
-      },
+			keys = {
+				{ "<leader>lf", "<cmd>Format<cr>", desc = "Formatting" },
+			},
 			config = function()
 				require("formatter").setup({
 					filetype = {
-						lua = {
-							require("formatter.filetypes.lua").stylua,
-						},
-						cpp = {
-							require("formatter.filetypes.cpp").clangformat,
-						},
-            python = {
-              require("formatter.filetypes.python").autopep8,
-            },
-						["*"] = {
-							require("formatter.filetypes.any").remove_trailing_whitespace,
-						},
+						lua = { require("formatter.filetypes.lua").stylua },
+						cpp = { require("formatter.filetypes.cpp").clangformat },
+						python = { require("formatter.filetypes.python").autopep8 },
+						["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
 					},
 				})
 			end,
@@ -46,7 +57,6 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 		lspconfig.clangd.setup({ capabilities = capabilities })
 		lspconfig.lua_ls.setup({ capabilities = capabilities })
 		lspconfig.pyright.setup({ capabilities = capabilities })
