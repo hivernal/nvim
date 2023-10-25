@@ -46,7 +46,10 @@ return {
 					filetype = {
 						lua = { require("formatter.filetypes.lua").stylua },
 						cpp = { require("formatter.filetypes.cpp").clangformat },
+						c = { require("formatter.filetypes.c").clangformat },
 						python = { require("formatter.filetypes.python").autopep8 },
+						go = { require("formatter.filetypes.go").gofmt },
+						rust = { require("formatter.filetypes.rust").rustfmt },
 						["*"] = { require("formatter.filetypes.any").remove_trailing_whitespace },
 					},
 				})
@@ -60,6 +63,9 @@ return {
 		lspconfig.clangd.setup({ capabilities = capabilities })
 		lspconfig.lua_ls.setup({ capabilities = capabilities })
 		lspconfig.pyright.setup({ capabilities = capabilities })
+		lspconfig.gopls.setup({ capabilities = capabilities })
+		lspconfig.hls.setup({ capabilities = capabilities })
+		lspconfig.rust_analyzer.setup({ capabilities = capabilities })
 
 		local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 		for type, icon in pairs(signs) do
