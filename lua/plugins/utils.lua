@@ -67,29 +67,10 @@ return {
     },
   },
 
-  --[[ {
-    "akinsho/toggleterm.nvim",
-    keys = {
-      { "<m-t>", desc = "Toggle terminal" }
-    },
-    opts = {
-      open_mapping = "<m-t>",
-      direction = "float",
-      float_opts = {
-        border = "curved",
-        width = 150,
-        height = 35,
-      },
-      insert_mappings = false,
-    },
-  },
-
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
-    opts = {},
-    config = function(_, opts)
-      require("ibl").setup(opts)
-    end
-  }, ]]
+    main = "ibl",
+    opts = {}
+  }
 }
