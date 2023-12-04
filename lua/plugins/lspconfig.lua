@@ -6,9 +6,6 @@ return {
 			opts = {
 				ensure_installed = {
 					"lua-language-server",
-					"cpplint",
-					"autopep8",
-					"pyright",
 					"cpptools",
 					"stylua",
 				},

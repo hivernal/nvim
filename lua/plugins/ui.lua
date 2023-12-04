@@ -9,6 +9,11 @@ return {
     opts = {
       renderer = {
         root_folder_label = false,
+      },
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        }
       }
     },
   },
